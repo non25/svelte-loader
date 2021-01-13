@@ -32,13 +32,16 @@ describe('loader', () => {
 
 			const callbackSpy = spy(cb);
 
+			const nameParts = fileName.split(/[/\\]/g);
+
 			loader.call(
 				{
 					cacheable: cacheableSpy,
 					async: () => callbackSpy,
-					resourcePath: fileName,
 					version,
-					query
+					query,
+					resourcePath: fileName,
+					resource: nameParts[nameParts.length - 1],
 				},
 				fileContents,
 				null
@@ -209,6 +212,19 @@ describe('loader', () => {
 				)
 			);
 		});
+
+		it(
+			'should configure emitCss=true',
+			testLoader(
+				'test/fixtures/css.html',
+				function(err, code, map) {
+					expect(err).not.to.exist;
+
+					expect(code).to.match(/!=!svelte-loader\?cssPath=/);
+				},
+				{ emitCss: true }
+			)
+		);
 
 		describe('preprocess', () => {
 			it('should preprocess successfully', done => {
