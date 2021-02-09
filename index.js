@@ -8,7 +8,15 @@ function posixify(file) {
 }
 
 const virtualModules = new Map();
-let index = 0;
+let indexes = {};
+
+function getIndex(resource) {
+	if (!indexes[resource]) {
+		indexes[resource] = 0;
+	}
+	indexes[resource] += 1;
+	return indexes[resource];
+}
 
 module.exports = function(source, map) {
 	this.cacheable();
@@ -70,7 +78,8 @@ module.exports = function(source, map) {
 
 		if (options.emitCss && css.code) {
 			const resource = posixify(compileOptions.filename);
-			const cssPath = `${resource}.${index++}.css`;
+			const index = getIndex(resource);
+			const cssPath = `${resource}.${index}.css`;
 			css.code += '\n/*# sourceMappingURL=' + css.map.toUrl() + '*/';
 			js.code += `\nimport '${cssPath}!=!@non25/svelte-loader?cssPath=${cssPath}!${resource}'\n;`;
 			virtualModules.set(cssPath, css.code);
