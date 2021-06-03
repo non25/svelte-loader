@@ -1,4 +1,9 @@
-# svelte-loader changelog
+# @non25/svelte-loader changelog
+
+## 3.1.3
+
+* Readme overhaul
+* Remove outdated examples
 
 ## 3.1.2
 
