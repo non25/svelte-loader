@@ -1,5 +1,7 @@
 # svelte-loader
 
+This is a fork for faster merges and releases. [More info](https://github.com/sveltejs/svelte-loader/issues/185).
+
 [![Build Status](https://travis-ci.org/sveltejs/svelte-loader.svg?branch=master)](https://travis-ci.org/sveltejs/svelte-loader)
 
 A [webpack](https://webpack.js.org) loader for [svelte](https://svelte.technology).

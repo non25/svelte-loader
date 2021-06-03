@@ -1,6 +1,6 @@
 {
-  "name": "svelte-loader",
-  "version": "3.1.1",
+  "name": "@non25/svelte-loader",
+  "version": "3.1.2",
   "author": "Nico Rehwaldt <git_nikku@nixis.de>",
   "description": "A webpack loader for svelte",
   "license": "MIT",
@@ -33,7 +33,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:sveltejs/svelte-loader.git"
+    "url": "git@github.com:non25/svelte-loader.git"
   },
   "files": [
     "lib",
