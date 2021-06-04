@@ -71,7 +71,7 @@ module.exports = function(source, map) {
 			const resource = posixify(compileOptions.filename);
 			const cssPath = `${resource}.0.css`;
 			css.code += '\n/*# sourceMappingURL=' + css.map.toUrl() + '*/';
-			js.code += `\nimport '${cssPath}!=!@non25/svelte-loader?cssPath=${cssPath}!${resource}'\n;`;
+			js.code += `\nimport '${cssPath}!=!svelte-loader?cssPath=${cssPath}!${resource}'\n;`;
 			virtualModules.set(cssPath, css.code);
 		}
 
